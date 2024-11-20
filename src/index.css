@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply antialiased text-white bg-black;
+  }
+
+  select option {
+    @apply bg-gray-900 text-white;
+  }
+}
+
+@layer components {
+  .input-focus {
+    @apply focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent;
+  }
+}
+
+@layer utilities {
+  .scroll-blur {
+    transition: filter 0.3s ease-out;
+  }
+  
+  @media (min-width: 640px) {
+    .scroll-blur {
+      filter: blur(0px);
+    }
+    
+    :root[data-scroll='true'] .scroll-blur {
+      filter: blur(2px);
+    }
+  }
+}
